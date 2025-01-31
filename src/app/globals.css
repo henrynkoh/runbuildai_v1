@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #6366f1;
+  --primary-dark: #4f46e5;
+  --secondary: #ec4899;
+  --background-dark: #0f172a;
+  --background-light: #1e293b;
+  --text-light: #f8fafc;
+  --text-dim: #94a3b8;
+  --accent: #38bdf8;
+}
+
+@layer base {
+  body {
+    @apply bg-gradient-to-br from-[#0f172a] to-[#1e293b] text-[#f8fafc];
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer components {
+  .glass-effect {
+    @apply bg-white/[0.07] backdrop-blur-lg border border-white/[0.1] shadow-xl;
+  }
+  
+  .glass-card {
+    @apply glass-effect hover:bg-white/[0.1] transition-all duration-300 hover:shadow-2xl hover:scale-[1.02];
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#6366f1] via-[#ec4899] to-[#38bdf8] animate-gradient-x;
+  }
+
+  .hover-glow {
+    @apply transition-all duration-300 hover:shadow-[0_0_30px_-5px_rgba(99,102,241,0.3)];
+  }
+
+  .button-primary {
+    @apply px-6 py-3 rounded-full bg-[#6366f1] hover:bg-[#4f46e5] text-white font-medium 
+           transition-all duration-300 hover:shadow-lg hover:shadow-[#6366f1]/30 
+           active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .card-highlight {
+    @apply absolute -inset-[1px] bg-gradient-to-r from-[#6366f1] via-[#ec4899] to-[#38bdf8] 
+           rounded-[inherit] opacity-0 group-hover:opacity-100 transition-all duration-500 
+           blur-sm group-hover:blur-md -z-10;
+  }
+}
+
+@keyframes gradient-x {
+  0%, 100% {
+    background-size: 200% 200%;
+    background-position: left center;
+  }
+  50% {
+    background-size: 200% 200%;
+    background-position: right center;
+  }
+}
+
+.animate-gradient-x {
+  animation: gradient-x 15s ease infinite;
+}
+
+/* Modern Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-[#0f172a];
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-[#6366f1]/30 rounded-full hover:bg-[#6366f1]/50 transition-colors;
+}
+
+/* Smooth Transitions */
+* {
+  @apply transition-colors duration-200;
+}
