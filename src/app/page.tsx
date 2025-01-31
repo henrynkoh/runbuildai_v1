@@ -1,15 +1,24 @@
 'use client';
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { ArrowRightIcon, BeakerIcon, CodeBracketIcon, CpuChipIcon } from "@heroicons/react/24/outline";
 
-const fadeIn = {
-  initial: { opacity: 0, y: 20 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.5, ease: "easeOut" }
+const fadeIn: Variants = {
+  initial: { 
+    opacity: 0, 
+    y: 20 
+  },
+  animate: { 
+    opacity: 1, 
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: "easeOut"
+    }
+  }
 };
 
-const stagger = {
+const stagger: Variants = {
   initial: {},
   animate: {
     transition: {
@@ -19,10 +28,19 @@ const stagger = {
   }
 };
 
-const slideIn = {
-  initial: { opacity: 0, x: -20 },
-  animate: { opacity: 1, x: 0 },
-  transition: { duration: 0.5, ease: "easeOut" }
+const slideIn: Variants = {
+  initial: { 
+    opacity: 0, 
+    x: -20 
+  },
+  animate: { 
+    opacity: 1, 
+    x: 0,
+    transition: {
+      duration: 0.5,
+      ease: "easeOut"
+    }
+  }
 };
 
 export default function Home() {
